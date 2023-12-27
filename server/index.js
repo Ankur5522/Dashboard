@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors(
   {
-    origin: ["https://dashboard-5lf5-1om8rx3he-ankur5522.vercel.app"],
+    origin: ["*"],
     methods: ['POST','GET'],
     credentials: true
   }
