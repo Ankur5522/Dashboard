@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.appMain {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebarMain {
+  max-width: 251px;
+  width: 30%;
+  height: 100vh;
+  padding: 10px none;
+  position: fixed;
+  z-index: 900;
+  background-color: white;
+  transition: width 0.3s;
+}
+
+.necleo {
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  padding-bottom: 10px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding-left: 22px;
+  text-decoration: none;
+  color: black; 
+}
+
+.sidebar-item.active {
+  background-color: #f0f0f0; 
+  color: #ff5722; 
+}
+
+.sidebar-item > p {
+  font-size: 14px;
+  padding-left: 6px;
+  font-weight: 600;
+}
+
+.sidebar-border {
+  margin: 0 auto;
+  width: 80%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-section {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.sidebar-expand {
+  height: 40px;
+  position: fixed;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.sidebarMain.collapsed {
+  width: 0px;
+}
+
+.sidebarMain.collapsed .necleo {
+  opacity: 0;
+}
+
+.sidebarMain.collapsed .sidebar-section {
+  width: 0;
+}
+
+
+@media only screen and (max-width: 767px) {
+  body {
+    margin: 0;
+  }
+  .sidebarMain {
+    width: 100%;
+  }
+
+  .sidebarMain.collapsed .sidebar-section {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+.navbarMain {
+  display: flex;
+  justify-content: flex-end;
+  background-color: white;
+  width: 100%;
+  height: 58px;
+  position: fixed;
+  z-index: 800;
+  padding-right: 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-info {
+  display: flex;
+  width: 214px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: rgba(250, 120, 47, 1);
+  font-size: 10px;
+}
+
+.navbar-profile {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.navbar-down {
+  transition: transform 0.3s;
+}
+
+.navbar-down.rotate {
+  transform: rotate(180deg);
+}
+
+.navbar-profile-display {
+  background-color: lightblue;
+  height: 0;
+  width: 140px;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-weight: 500;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.2s, opacity 0.5s;
+  position: absolute;
+  margin-top: 58px;
+  z-index: 999;
+}
+
+.navbar-profile-display.visible {
+  height: 160px;
+  opacity: 1;
+}
+
+.mainwindowMain {
+  position: relative;
+  background-color: rgba(248, 248, 248, 1);
+  height: 100%;
+  width: 95%;
+  margin: auto;
+  margin-top: 58px;
+}
+
+.mainwindow-heading {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 18px auto 26px 52px;
+}
+
+.mainwindow-cardHolder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+  .mainwindow-cardHolder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 15px;
+  }
+
+  .project-form {
+    max-width: 350px;
+  }
+}
+
+@media only screen and (max-width: 1260px) and (min-width: 767px){
+  .mainwindow-cardHolder {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .project-form {
+    min-width: 350px;
+  }
+}
+
+.cardMain {
+  background-color: white;
+  width: 404px;
+  height: 265px;
+  padding: 14px 22px;
+  padding-bottom: none;
+  position: relative;
+}
+
+.card-buttons {
+  position: absolute;
+  right: 22px;
+  display: flex;
+  column-gap: 5px;
+  cursor: pointer;
+}
+
+.card-update {
+  background-color: rgb(222, 179, 148);
+  padding: 2px 4px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card-image {
+  height: 180px;
+  width: 360px;
+  background-color: rgba(250, 120, 47, 0.4);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-projectImage {
+  height: 180px;
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.card-text {
+  height: 71px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card-create {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-try {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-try > span {
+  color: rgba(250, 120, 47, 1);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-description {
+  font-size: 14px;
+  max-height: 15px;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.projectformMain {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 92vh;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(227, 216, 204, 0.5);
+  z-index: 700;
+}
+
+.project-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 500;
+  width: 28%;
+  background-color: rgb(239, 206, 186);
+  padding: 20px 20px 30px 20px;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .project-form {
+    width: 80%;
+  }
+}
+
+.project-input {
+  display: block;
+  padding: 6px;
+  width: 100%;
+  margin-top: 2px;
+  border-radius: 6px;
+}
+
+.project-textarea {
+  border-radius: 6px;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100px;
+  padding: 10px;
+}
+
+.project-submit {
+  height: 35px;
+  border-radius: 6px;
+  background-color: rgba(250, 120, 47, 0.5);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.viewProjectMain {
+  width: 60%;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.view-text {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .viewProjectMain {
+    width: 80%;
+  }
+
+  .view-wrapper {
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .view-image {
+    width: 6rem
+  }
+}
+
