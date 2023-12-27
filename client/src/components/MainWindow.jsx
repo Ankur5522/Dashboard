@@ -1,5 +1,5 @@
 import ProjectCard from "./ProjectCard";
-import ProjectForm from "./projectForm";
+import ProjectForm from "./ProjectForm";
 import { useState, useEffect } from "react";
 import { deleteProjectById, getAllProjects } from "../api/api";
 import ViewProject from "./ViewProject";
@@ -72,7 +72,7 @@ const MainWindow = () => {
             <p className="mainwindow-heading">My Projects</p>
             <div className="mainwindow-cardHolder">
                 <ProjectCard handleClick={handleClick} />
-                {projects.map((project) => (
+                {projects && projects.map((project) => (
                     <ProjectCard key={project._id} project={project} handleClick={handleClick} handleUpdate={handleUpdate} handleDelete={handleDelete} handleShowProject={handleShowProject} />
                 ))}
             </div>
