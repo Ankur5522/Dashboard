@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
 const BASE_URL = 'https://dashboard-server-psi.vercel.app/project';
 
 const api = axios.create({
