@@ -1,17 +1,43 @@
 import ProjectCard from "./ProjectCard";
 import ProjectForm from "./ProjectForm";
 import { useState, useEffect } from "react";
-import { deleteProjectById, getAllProjects } from "../api/api";
+import { createProject, deleteProjectById, getAllProjects } from "../api/api";
 import ViewProject from "./ViewProject";
 
 const MainWindow = () => {
     const [clicked, setClicked] = useState(false);
+    const [defaultData, setDefaultData] = useState(false);
     const [callUseEffect, setCallUseEffect] = useState(false);
     const [projects, setProjects] = useState([]);
     const [selectedProject, setSelectedProject] = useState(null);
     const [showDetails, setShowDetails] = useState(false)
 
     useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const response = await fetch("https://picsum.photos/v2/list?page=1&limit=6");
+                const data = await response.json();
+                const EditedData = data.map(item => ({
+                    name: `Project ${item.id}`,
+                    image: item.url,
+                    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                  }));
+                setDefaultData(EditedData);
+                console.log(EditedData)
+                const createProjects = async () => {
+                    for (const projectData of defaultData) {
+                      await createProject(projectData);
+                    }
+                  };
+                createProjects();
+                
+            } catch (error) {
+                console.log("error",error)
+            }
+        }
+
+        fetchImages();
+
         const fetchProjects = async () => {
             try {
                 const allProjects = await getAllProjects();
