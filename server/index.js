@@ -9,8 +9,8 @@ const app = express();
 
 app.use(cors(
   {
-    origin: ["*"],
-    methods: ['POST','GET'],
+    origin: ["https://dashboard-5lf5.vercel.app"],
+    methods: ['POST','GET','DELETE','PUT'],
     optionsSuccessStatus: 200,
     credentials: true
   }
