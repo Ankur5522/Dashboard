@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <div className="appMain">
         <Sidebar />
-        <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100vh"}}>
           <Navbar />
           <Routes>
             <Route path="/" element={<Navigate to="/my-projects" />} />
