@@ -11,7 +11,8 @@ app.use(cors(
   {
     origin: ["https://dashboard-5lf5.vercel.app"],
     methods: ['POST','GET'],
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    credentials: true
   }
 ));
 app.use(bodyParser.json());
