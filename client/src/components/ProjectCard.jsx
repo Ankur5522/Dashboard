@@ -28,7 +28,7 @@ const ProjectCard = ({ project, handleClick, handleUpdate, handleDelete, handleS
             </div>
             </div>
             <div className="card-projectImage">
-                <img src={project.image} alt="add new project" />
+                <img src={project.image} alt="project-image" height="100%" width="100%" />
             </div>
             <div className="card-text" onClick={() => handleShowProject(project)}>
                 <p className="card-title">{project.name}</p>
