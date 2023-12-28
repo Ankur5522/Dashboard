@@ -59,7 +59,7 @@ const ViewProject = ({ project, handleShowDetails }) => {
                         >
                             Project Description:{" "}
                         </p>
-                        <p style={{ fontSize: "18px", fontWeight: "500" }}>
+                        <p className="view-desc">
                             {project.description}
                         </p>
                     </div>
@@ -74,7 +74,7 @@ const ViewProject = ({ project, handleShowDetails }) => {
                     >
                         Cover Image:{" "}
                     </p>
-                    <img src={project.image} alt="add new project" className="view-image"/>
+                    <img src={project.image} alt="add new project" className="view-image" height="80%" width="100%" />
                 </div>
                 </div>
             </div>

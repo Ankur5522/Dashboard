@@ -371,6 +371,11 @@
   align-items: center;
 }
 
+.view-desc {
+  font-size: 14px;
+  font-weight: 500;
+} 
+
 .view-text {
   height: 100%;
   width: 80%;
@@ -384,7 +389,6 @@
   .viewProjectMain {
     width: 80%;
   }
-
   .view-wrapper {
     flex-direction: column;
     height: 100%;
